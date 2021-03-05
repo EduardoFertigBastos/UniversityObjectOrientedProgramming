@@ -1,0 +1,13 @@
+C:\Users\Usuário\git\UniversityObjectOrientedProgramming\02_26\03_05\03_05\bin\Debug\netcoreapp3.1\03_05.exe
+C:\Users\Usuário\git\UniversityObjectOrientedProgramming\02_26\03_05\03_05\bin\Debug\netcoreapp3.1\03_05.deps.json
+C:\Users\Usuário\git\UniversityObjectOrientedProgramming\02_26\03_05\03_05\bin\Debug\netcoreapp3.1\03_05.runtimeconfig.json
+C:\Users\Usuário\git\UniversityObjectOrientedProgramming\02_26\03_05\03_05\bin\Debug\netcoreapp3.1\03_05.runtimeconfig.dev.json
+C:\Users\Usuário\git\UniversityObjectOrientedProgramming\02_26\03_05\03_05\bin\Debug\netcoreapp3.1\03_05.dll
+C:\Users\Usuário\git\UniversityObjectOrientedProgramming\02_26\03_05\03_05\bin\Debug\netcoreapp3.1\03_05.pdb
+C:\Users\Usuário\git\UniversityObjectOrientedProgramming\02_26\03_05\03_05\obj\Debug\netcoreapp3.1\03_05.csprojAssemblyReference.cache
+C:\Users\Usuário\git\UniversityObjectOrientedProgramming\02_26\03_05\03_05\obj\Debug\netcoreapp3.1\03_05.AssemblyInfoInputs.cache
+C:\Users\Usuário\git\UniversityObjectOrientedProgramming\02_26\03_05\03_05\obj\Debug\netcoreapp3.1\03_05.AssemblyInfo.cs
+C:\Users\Usuário\git\UniversityObjectOrientedProgramming\02_26\03_05\03_05\obj\Debug\netcoreapp3.1\03_05.csproj.CoreCompileInputs.cache
+C:\Users\Usuário\git\UniversityObjectOrientedProgramming\02_26\03_05\03_05\obj\Debug\netcoreapp3.1\03_05.dll
+C:\Users\Usuário\git\UniversityObjectOrientedProgramming\02_26\03_05\03_05\obj\Debug\netcoreapp3.1\03_05.pdb
+C:\Users\Usuário\git\UniversityObjectOrientedProgramming\02_26\03_05\03_05\obj\Debug\netcoreapp3.1\03_05.genruntimeconfig.cache
