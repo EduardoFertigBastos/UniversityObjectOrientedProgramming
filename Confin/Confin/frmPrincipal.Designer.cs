@@ -29,12 +29,22 @@ namespace Confin
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.conexao = new System.Windows.Forms.Button();
             this.SELECT = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.inclui = new System.Windows.Forms.Button();
             this.Alterar = new System.Windows.Forms.Button();
             this.Deletar = new System.Windows.Forms.Button();
+            this.CadastroEstado = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // conexao
@@ -59,7 +69,7 @@ namespace Confin
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 12);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 27);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(540, 335);
             this.richTextBox1.TabIndex = 2;
@@ -96,21 +106,95 @@ namespace Confin
             this.Deletar.UseVisualStyleBackColor = true;
             this.Deletar.Click += new System.EventHandler(this.Deletar_Click);
             // 
+            // CadastroEstado
+            // 
+            this.CadastroEstado.Location = new System.Drawing.Point(559, 69);
+            this.CadastroEstado.Name = "CadastroEstado";
+            this.CadastroEstado.Size = new System.Drawing.Size(75, 23);
+            this.CadastroEstado.TabIndex = 6;
+            this.CadastroEstado.Text = "Estados";
+            this.CadastroEstado.UseVisualStyleBackColor = true;
+            this.CadastroEstado.Click += new System.EventHandler(this.CadastroEstado_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Location = new System.Drawing.Point(0, 24);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 7;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arquivoToolStripMenuItem,
+            this.configToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip2.TabIndex = 8;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // arquivoToolStripMenuItem
+            // 
+            this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sairToolStripMenuItem});
+            this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
+            this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.arquivoToolStripMenuItem.Text = "Arquivo";
+            // 
+            // sairToolStripMenuItem
+            // 
+            this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sairToolStripMenuItem.Text = "Sair";
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
+            // 
+            // configToolStripMenuItem
+            // 
+            this.configToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.estadosToolStripMenuItem,
+            this.cidadesToolStripMenuItem});
+            this.configToolStripMenuItem.Name = "configToolStripMenuItem";
+            this.configToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.configToolStripMenuItem.Text = "Cadastro";
+            // 
+            // estadosToolStripMenuItem
+            // 
+            this.estadosToolStripMenuItem.Name = "estadosToolStripMenuItem";
+            this.estadosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.estadosToolStripMenuItem.Text = "Estados";
+            this.estadosToolStripMenuItem.Click += new System.EventHandler(this.estadosToolStripMenuItem_Click);
+            // 
+            // cidadesToolStripMenuItem
+            // 
+            this.cidadesToolStripMenuItem.Name = "cidadesToolStripMenuItem";
+            this.cidadesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cidadesToolStripMenuItem.Text = "Cidades";
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.CadastroEstado);
             this.Controls.Add(this.Deletar);
             this.Controls.Add(this.Alterar);
             this.Controls.Add(this.inclui);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.SELECT);
             this.Controls.Add(this.conexao);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmPrincipal";
             this.Text = "ConFin - Controle Financeiro";
             this.Load += new System.EventHandler(this.Form1_Load_1);
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -122,6 +206,14 @@ namespace Confin
         private System.Windows.Forms.Button inclui;
         private System.Windows.Forms.Button Alterar;
         private System.Windows.Forms.Button Deletar;
+        private System.Windows.Forms.Button CadastroEstado;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estadosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cidadesToolStripMenuItem;
     }
 }
 

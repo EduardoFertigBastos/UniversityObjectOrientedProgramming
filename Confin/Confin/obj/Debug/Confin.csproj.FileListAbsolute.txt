@@ -31,3 +31,4 @@ C:\Users\Usuário\git\UniversityObjectOrientedProgramming\Confin\Confin\bin\Debu
 C:\Users\Usuário\git\UniversityObjectOrientedProgramming\Confin\Confin\bin\Debug\System.ValueTuple.xml
 C:\Users\Usuário\git\UniversityObjectOrientedProgramming\Confin\Confin\obj\Debug\Confin.frmPrincipal.resources
 C:\Users\Usuário\git\UniversityObjectOrientedProgramming\Confin\Confin\obj\Debug\Confin.csproj.CopyComplete
+C:\Users\Usuário\git\UniversityObjectOrientedProgramming\Confin\Confin\obj\Debug\Confin.View.FrmEstado.resources
