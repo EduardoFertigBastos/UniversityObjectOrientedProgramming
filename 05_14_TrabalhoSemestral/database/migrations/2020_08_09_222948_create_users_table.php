@@ -1,7 +1,9 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
+
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * Class CreateUsersTable.
@@ -21,8 +23,8 @@ class CreateUsersTable extends Migration
 			$table->date('birth');
 			$table->unsignedInteger('address_id');
 			$table->integer('gender');
-			$table->char('cpf', 11)->unique();
-			$table->string('email', 255)->unique();
+			$table->char('cpf', 11);
+			$table->string('email', 255);
 			$table->string('password', 40);
 
 			$table->timestamps();
