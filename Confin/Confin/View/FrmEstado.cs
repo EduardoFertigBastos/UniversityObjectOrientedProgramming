@@ -35,5 +35,49 @@ namespace Confin.View
         {
 
         }
+
+        private void Novo_Click(object sender, EventArgs e)
+        {
+            FrmEstadoNovo form = new FrmEstadoNovo();
+            form.ShowDialog();
+            atualizaTela();
+        }
+
+        private void Alterar_Click(object sender, EventArgs e)
+        {
+            Estado estado = (Estado) dataGridView1.CurrentRow.DataBoundItem;
+            FrmAlterarEstado form = new FrmAlterarEstado(estado);
+            form.ShowDialog();
+            atualizaTela();
+        }
+
+        private void Excluir_Click(object sender, EventArgs e)
+        {
+
+            Estado estado = (Estado)dataGridView1.CurrentRow.DataBoundItem;
+
+            DialogResult result = MessageBox.Show(
+                null,
+                "Deseja excluir estado "+ estado.est_sigla + "?",
+                "Estado",
+                MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.OK)
+            {
+
+                bool efetuou = EstadoDB.setDeletaEstado(estado.est_sigla);
+                if (efetuou)
+                {
+                    MessageBox.Show("Rs");
+                }
+                else
+                {
+                    MessageBox.Show("RSRSRS");
+                }
+                atualizaTela();
+            }
+        }
     }
 }
