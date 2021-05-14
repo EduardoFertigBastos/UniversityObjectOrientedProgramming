@@ -12,7 +12,7 @@
 
     </div>
 
-    
+
     @include('templates.showSuccess')
     @include('templates.showError')
 
@@ -20,7 +20,7 @@
 
         <div class="col-sm-12 col-md-12 col-lg-8">
 
-            {!! Form::open(['route' => 'mail.contact', 'method' => 'post', 'class' => '']) !!}
+            <form>
 
                 <div class="form-row justify-content-center">
 
@@ -49,38 +49,7 @@
                         value="{{isset($user) ? $user->cityName: ''}}">
                     </div>
 
-                    @if (isset($user))
-                        <div class="form-group col-sm-4">
 
-                            <label for="state_name">Estado:</label>
-                            <select name="state_name" id="state" class="form-control">                        
-                                <option selected disabled> Selecione o seu estado... </option>
-                                @foreach ($states_list as $state)
-        
-                                    <option value="{{ $state->name }}" 
-                                        {{$state->name == $user->stateName ? 'selected' : ''}}> 
-                                        {{ $state->name }} 
-                                    </option>
-        
-                                @endforeach
-                            </select>
-
-                        </div>
-                    @else 
-                        <div class="form-group col-sm-4">
-
-                            <label for="state_name">Estado:</label>
-                            <select name="state_name" id="state" class="form-control">                        
-                                <option selected disabled> Selecione o seu estado... </option>
-                                @foreach ($states_list as $state)
-        
-                                    <option value="{{ $state->name }}"> {{ $state->name }} </option>
-        
-                                @endforeach
-                            </select>
-
-                        </div>
-                    @endif
 
                     <div class="form-group col-sm-2">
                         <label for="cep"> CEP: </label>
@@ -139,10 +108,11 @@
 
                 </div>
 
-            {!! Form::close() !!}        
+            </form>
 
         </div>
 
     </div>
 
 </div>
+

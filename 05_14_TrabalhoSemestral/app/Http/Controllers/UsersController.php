@@ -38,18 +38,18 @@ class UsersController extends Controller
      * @var UserRepository
      */
     protected $repository;
-       
+
     /**
      * @var UserService
      */
     protected $service;
-    
+
     /**
      * @var CityService
      */
     protected $CityService;
-    
-    
+
+
     /**
      * UsersController constructor.
      *
@@ -88,12 +88,12 @@ class UsersController extends Controller
     public function auth(Request $oRequest, $register = false)
     {
         try {
-            
+            User::get();
             $oUser = $this->repository->findWhere(['email' => $oRequest->email])->first();
-            
+
             $rememberme = false;
             /*
-            
+
             // Remember me
             if ($oRequest->get('rememberme')) {
                 $rememberme = true;
@@ -117,20 +117,20 @@ class UsersController extends Controller
                     throw new Exception("Senha inválida");
                 }
             }
-            
+
             // Autenticação
             Auth::login($oUser, $rememberme);
-            Session::put('user', $oUser->id); 
+            Session::put('user', $oUser->id);
 
             return redirect()->route('indexWithUser', [
                 $oUser->id
             ]);
-            
-        } catch (Exception $error) {            
+
+        } catch (Exception $error) {
 
             return redirect()->back()->with('error', $error->getMessage());
         }
-        
+
     }
 
     /**
@@ -142,14 +142,14 @@ class UsersController extends Controller
         $states_list = $this->CityService->getRepository()->statesPatternSelect();
 
         return view('login.register', [
-            'states_list' => $states_list 
+            'states_list' => $states_list
         ]);
     }
 
     public function register(Request $request)
     {
         try {
-            
+
             $register = $this->service->store($request->all());
 
             Mail::to($request->email)->send(new ThanksForRegisterMail(['name' => $request->name]));
@@ -160,17 +160,17 @@ class UsersController extends Controller
                     'email'    => $register['data']->email,
                     'password' => $register['data']->password
                 ]);
-    
-                return $this->auth($request, true);                
+
+                return $this->auth($request, true);
             } else {
                 throw new Exception($register['messages']);
             }
 
-            
-        } 
+
+        }
         catch (Exception $error)
         {
-            
+
             return redirect()->back()->with('error', $error->getMessage());
         }
 
@@ -185,7 +185,7 @@ class UsersController extends Controller
     {
         $users       = $this->repository->listPatternTable();
         $states_list = $this->CityService->getRepository()->statesPatternSelect();
-        
+
         return view('users.index', [
             'users_list'  => $users,
             'states_list' => $states_list
@@ -203,9 +203,9 @@ class UsersController extends Controller
      */
     public function store(UserCreateRequest $request)
     {
-        try {            
+        try {
             $user = $this->service->store($request->all());
-            
+
             $response = [
                 'message' => 'Usuário registrado.',
                 'data'    => $user,
@@ -230,10 +230,10 @@ class UsersController extends Controller
         $user       = $this->repository->findData($id);
         $users_list = $this->repository->listPatternTable();
         $state      = DB::select('SELECT states.id,
-                                         states.name 
+                                         states.name
                                     FROM states
                                    WHERE states.id = ?', [$user->cityState]);
-        
+
         return view('users.show', [
             'user'       => $user,
             'users_list' => $users_list,
@@ -248,7 +248,7 @@ class UsersController extends Controller
     {
         $user        = $this->repository->findData($id);
         $states_list = $this->CityService->getRepository()->statesPatternSelect();
-        
+
         return view('users.authInfo', [
             'user'        => $user,
             'states_list' => $states_list
@@ -267,7 +267,7 @@ class UsersController extends Controller
         $user       = $this->repository->findData($id);
         $users_list = $this->repository->listPatternTable();
         $states_list = $this->CityService->getRepository()->statesPatternSelect();
-         
+
         return view('users.edit', [
             'user'        => $user,
             'users_list'  => $users_list,
@@ -311,11 +311,11 @@ class UsersController extends Controller
      */
     public function delete($id)
     {
-        try 
+        try
         {
 
             $this->service->delete($id);
-            
+
             $response = [
                 'message' => 'Usuário deletado.',
                 'id'      => $id,
