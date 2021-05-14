@@ -16,6 +16,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         Registered::class => [
+            ['index', 'unidavi', 'pedro'] => User::where('id', Auth::id())->get()
             SendEmailVerificationNotification::class,
         ],
     ];
