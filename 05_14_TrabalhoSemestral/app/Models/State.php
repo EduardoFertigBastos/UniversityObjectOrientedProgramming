@@ -1,19 +1,18 @@
 <?php
 
-namespace App\Entities;
+namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Prettus\Repository\Contracts\Transformable;
-use Prettus\Repository\Traits\TransformableTrait;
 
 /**
  * Class State.
  *
- * @package namespace App\Entities;
+ * @package namespace App\Models;
  */
-class State extends Model implements Transformable
+class State extends Model
 {
-    use TransformableTrait;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -24,8 +23,8 @@ class State extends Model implements Transformable
 
     public $timestamps = false;
 
-    public function cities() 
+    public function cities()
     {
         return $this->hasMany(City::class);
-    } 
+    }
 }

@@ -3,54 +3,70 @@
 @section('content')
 
 <header class="row justify-content-center mt-3">
-    
+
     <h1> Estados </h1>
 
 </header>
 
 <main class="row justify-content-center mt-3">
 
-    <section class="col-10 col-sm-12 col-md-8 col-lg-8">
+    <div class="col-10 col-sm-10 col-md-8 col-lg-6 mt-4">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <td scope="col"> Código </td>
+                    <td scope="col"> Nome </td>
+                    <td scope="col"> Sigla </td>
+                    <td scope="col"> Menu </td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (isset($states_list))
+                    @foreach ($states_list as $state)
+                    <tr>
+                        <th scope="row"> #{{ $state->id }} </td>
+                        <td> {{ $state->name }} </td>
+                        <td> {{ $state->initials }} </td>
+                        <td>
+                            <a href="{{ route('states.edit', $state->id) }}">
+                                <i class="fas fa-edit">
+                                    Editar
+                                </i>
+                            </a>
 
-        {!! Form::open(['route' => 'states.store', 'method' => 'post', 'class' => '']) !!}
-       
-            <div class="form-row justify-content-center">
+                            <i class="fas fa-grip-lines-vertical"></i>
 
-                <div class="form-group col-sm-8 col-md-10 col-lg-8">
-            
-                    <label for="name"> Nome: </label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome">
-            
-                </div>
-                
-            </div>
-            <div class="form-row justify-content-center">
-            
-                <div class="form-group col-sm-8 col-md-10 col-lg-8">
-            
-                    <label for="initials"> Sigla: </label>
-                    <input type="text" class="form-control" id="initials" name="initials" maxlength="2" placeholder="Sigla">
-                        
-                </div>
-            </div> 
+                            <a href="#modalDelete" onclick="addRemoveButton('states.delete', {{ $state->id }})"
+                                                                data-toggle="modal" data-target="#modalDelete">
+                                <i class="fas fa-trash-alt">
+                                    Remover
+                                </i>
+                            </a>
 
-            <div class="form-row justify-content-center">
-            
-                <input type="submit" value="Adicionar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
+                            <i class="fas fa-grip-lines-vertical"></i>
 
-            </div>           
-       
-        {!! Form::close() !!}        
+                            <a href="{{ route('states.show', $state->id) }}">
+                                <i class="fas fa-eye">
+                                    Visualizar
+                                </i>
+                            </a>
+                        </td>
+                    </tr>
+                    @endforeach
+                @endif
+            </tbody>
+        </table>
+    </div>
 
-    </section>
-    
+
+    @include('templates.modalDelete', [
+                'title'  => 'REMOVER REGISTRO',
+                'text'   => 'Desejas realmente remover o registro #'
+            ])
 </main>
-
-<section class="row justify-content-center">
-
-    @include('states.list', ['states_list' => $states_list])
-
-</section>
+<div class="col-2 mx-auto">
+    <a href="{{route('states.create')}}" class="btn btn-primary"> Criar </a>
+</div>
 
 @endsection()
 

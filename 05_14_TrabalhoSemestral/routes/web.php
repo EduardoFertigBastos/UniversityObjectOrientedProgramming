@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\StatesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [DashboardController::class, 'index'])->name('index');
 
-Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
+/**
+ * STATES
+ */
 
-Route::get('/addresses',['as' => 'addresses.index',  'uses' => 'AddressesController@index']) ;
+Route::get('/states',                    [StatesController::class, 'index']) ->name('states.index');
+Route::get('/states/create',             [StatesController::class, 'create'])->name('states.create');
+Route::get('/states/{state_id}/delete',  [StatesController::class, 'delete'])->name('states.delete');
+Route::get('/states/{state_id}/edit',    [StatesController::class, 'edit'])  ->name('states.edit');
+Route::get('/states/{state_id}/show',    [StatesController::class, 'show'])  ->name('states.show');
+Route::post('/states',                   [StatesController::class, 'store']) ->name('states.store');
+Route::post('/states/{state_id}/update', [StatesController::class, 'update'])->name('states.update');
 
 /**
      * Addresses
@@ -65,13 +73,3 @@ Route::get('/addresses',['as' => 'addresses.index',  'uses' => 'AddressesControl
     Route::post('/productTypes',                         ['as' => 'productTypes.store',  'uses' => 'ProductTypesController@store']) ;
     Route::post('/productTypes/{productType_id}/update', ['as' => 'productTypes.update', 'uses' => 'ProductTypesController@update']);
 
-    /**
-     * STATES
-     */
-
-    Route::get('/states',                    ['as' => 'states.index',  'uses' => 'StatesController@index']) ;
-    Route::get('/states/{state_id}/delete',  ['as' => 'states.delete', 'uses' => 'StatesController@delete']);
-    Route::get('/states/{state_id}/edit',    ['as' => 'states.edit',   'uses' => 'StatesController@edit'])  ;
-    Route::get('/states/{state_id}/show',    ['as' => 'states.show',   'uses' => 'StatesController@show'])  ;
-    Route::post('/states',                   ['as' => 'states.store',  'uses' => 'StatesController@store']) ;
-    Route::post('/states/{state_id}/update', ['as' => 'states.update', 'uses' => 'StatesController@update']);

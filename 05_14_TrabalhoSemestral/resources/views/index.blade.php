@@ -8,7 +8,7 @@
                     <a href="Home" target="" class="bg-secondary text-light col-12 py-3">Home</a>
                 </div>
                 <div class="row text-center border-top border-transparent">
-                    <a href="Contato" target="" class="bg-secondary text-light col-12 py-3">Contato</a>
+                    <a href="{{route('states.index')}}" class="bg-secondary text-light col-12 py-3">States</a>
                 </div>
                 <div class="row text-center border-top border-transparent">
                     <a href="Suporte" target="" class="bg-secondary text-light col-12 py-3">Suporte</a>

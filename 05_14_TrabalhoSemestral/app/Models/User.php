@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Entities;
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use PhpParser\Node\Stmt\Switch_;
 
 class User extends Authenticatable
 {
     use Notifiable;
 
     public    $timestamps = true;
-    protected $table      = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -35,7 +35,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Address::class, 'address_id', 'id');
     }
-    
+
     public function userTelephoneses()
     {
         return $this->hasMany(UserTelephones::class);
@@ -48,7 +48,7 @@ class User extends Authenticatable
 
     public function getFormattedCpfAttribute()
     {
-        $sCpf = $this->attributes['cpf']; 
+        $sCpf = $this->attributes['cpf'];
 
         return substr($sCpf, 0, 3) . '.' . substr($sCpf, 3, 3) . '.' .
                substr($sCpf, 6, 3) . '-' . substr($sCpf, 9, 2);
@@ -56,7 +56,7 @@ class User extends Authenticatable
 
     public function getFormattedGenderAttribute()
     {
-        $sGender = $this->attributes['gender']; 
+        $sGender = $this->attributes['gender'];
 
         switch ($sGender) {
             case '0':
@@ -67,8 +67,8 @@ class User extends Authenticatable
                 break;
             case '2':
                 $variableReturn = 'Outros';
-                break;            
-            default:               
+                break;
+            default:
                 $variableReturn = 'Undefined';
                 break;
         }
@@ -86,15 +86,15 @@ class User extends Authenticatable
     public function getFormattedBirthAttribute()
     {
         $sBirth = explode('-', $this->attributes['birth']);
-        
-        if (count($sBirth) === 3) 
+
+        if (count($sBirth) === 3)
         {
             return $sBirth[2] . '/' . $sBirth[1] . '/' . $sBirth[0];
-        } 
+        }
         else
         {
             return '';
-        }        
+        }
     }
 
 }
