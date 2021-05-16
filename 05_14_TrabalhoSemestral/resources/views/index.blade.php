@@ -3,32 +3,7 @@
     @section('content')
 
         <main class="d-flex justify-content-between">
-            <aside class="col-2 d-flex flex-column">
-                <div class="row text-center border-top border-transparent">
-                    <a href="Home" target="" class="bg-secondary text-light col-12 py-3">Home</a>
-                </div>
-                <div class="row text-center border-top border-transparent">
-                    <a href="{{route('states.index')}}" class="bg-secondary text-light col-12 py-3">States</a>
-                </div>
-                <div class="row text-center border-top border-transparent">
-                    <a href="Suporte" target="" class="bg-secondary text-light col-12 py-3">Suporte</a>
-                </div>
-                <div class="row text-center border-top border-transparent">
-                    <a href="Produto" target="" class="bg-secondary text-light col-12 py-3">Produto</a>
-                </div>
-                <div class="row text-center border-top border-transparent">
-                    <a href="Rato" target="" class="bg-secondary text-light col-12 py-3">Rato</a>
-                </div>
-                <div class="row text-center border-top border-transparent">
-                    <a href="Vaca" target="" class="bg-secondary text-light col-12 py-3">Vaca</a>
-                </div>
-                <div class="row text-center border-top border-transparent">
-                    <a href="Tigre" target="" class="bg-secondary text-light col-12 py-3">Tigre</a>
-                </div>
-                <div class="row text-center border-top border-transparent">
-                    <a href="Jegue" target="" class="bg-secondary text-light col-12 py-3">Jegue</a>
-                </div>
-            </aside>
+            @include('templates.aside')
             <div class="col-10 d-flex flex-column">
                 <section id="sectionTable">
                     <table class="table table-striped">

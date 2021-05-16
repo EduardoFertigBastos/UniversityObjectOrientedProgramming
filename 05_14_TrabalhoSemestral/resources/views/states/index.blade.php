@@ -28,27 +28,17 @@
                         <td> {{ $state->name }} </td>
                         <td> {{ $state->initials }} </td>
                         <td>
-                            <a href="{{ route('states.edit', $state->id) }}">
-                                <i class="fas fa-edit">
-                                    Editar
-                                </i>
+                            <a href="{{ route('states.edit', $state->id) }}" class="btn btn-primary">
+                                <i class="fas fa-edit"></i>
                             </a>
-
-                            <i class="fas fa-grip-lines-vertical"></i>
 
                             <a href="#modalDelete" onclick="addRemoveButton('states.delete', {{ $state->id }})"
-                                                                data-toggle="modal" data-target="#modalDelete">
-                                <i class="fas fa-trash-alt">
-                                    Remover
-                                </i>
+                                                        class="btn btn-danger" data-toggle="modal" data-target="#modalDelete">
+                                <i class="fas fa-trash-alt"></i>
                             </a>
 
-                            <i class="fas fa-grip-lines-vertical"></i>
-
-                            <a href="{{ route('states.show', $state->id) }}">
-                                <i class="fas fa-eye">
-                                    Visualizar
-                                </i>
+                            <a href="{{ route('states.show', $state->id) }}" class="btn btn-info">
+                                <i class="fas fa-eye"></i>
                             </a>
                         </td>
                     </tr>
@@ -56,6 +46,9 @@
                 @endif
             </tbody>
         </table>
+        <div class="form-row justify-content-center">
+            <a href="{{route('states.create')}}" class="col-6 btn btn-primary"> Cadastrar </a>
+        </div>
     </div>
 
 
@@ -64,9 +57,7 @@
                 'text'   => 'Desejas realmente remover o registro #'
             ])
 </main>
-<div class="col-2 mx-auto">
-    <a href="{{route('states.create')}}" class="btn btn-primary"> Criar </a>
-</div>
+
 
 @endsection()
 
