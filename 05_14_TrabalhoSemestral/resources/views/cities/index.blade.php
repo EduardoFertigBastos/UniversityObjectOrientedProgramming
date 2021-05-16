@@ -2,66 +2,64 @@
 
 @section('content')
 
-
 <header class="row justify-content-center mt-3">
-    
+
     <h1> Cidades </h1>
 
 </header>
 
 <main class="row justify-content-center mt-5">
 
-    <section class="col-10 col-sm-12 col-md-8 col-lg-8">
+    <div class="col-10 col-sm-12 col-md-8 col-lg-8 mt-4">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <td scope="col"> Código </td>
+                    <td scope="col"> Nome </td>
+                    <td scope="col"> Estado </td>
+                    <td scope="col"> Menu </td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (isset($cities_list))
+                    @foreach ($cities_list as $city)
+                    <tr>
+                        <th scope="row"> #{{ $city->id }} </td>
+                        <td> {{ $city->name }} </td>
+                        <td> {{ $city->stateName }} </td>
+                        <td>
+                            <a href="{{ route('cities.edit', $city->id) }}" class="btn btn-primary">
+                                <i class="fas fa-edit">
+                                    Editar
+                                </i>
+                            </a>
 
-        {!! Form::open(['route' => 'cities.store', 'method' => 'post', 'class' => '']) !!}
-        
-            <div class="form-row justify-content-center">
+                            <a href="#modalDelete" onclick="addRemoveButton('cities.delete', {{ $city->id }})"
+                                    class="btn btn-danger" data-toggle="modal" data-target="#modalDelete">
+                                <i class="fas fa-trash-alt">
+                                    Remover
+                                </i>
+                            </a>
 
-                <div class="form-group col-sm-8 col-md-10 col-lg-8">
-            
-                    <label for="name"> Nome: </label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome">
-            
-                </div>
-                
-            </div>
-            
-            <div class="form-row justify-content-center">
-            
-                <div class="form-group col-sm-8 col-md-10 col-lg-8">
-            
-                    <label for="state"> Estado: </label>
+                            <a href="{{ route('cities.show', $city->id) }}" class="btn btn-info">
+                                <i class="fas fa-eye">
+                                    Visualizar
+                                </i>
+                            </a>
+                        </td>
+                    </tr>
+                    @endforeach
+                @endif
+            </tbody>
+        </table>
+    </div>
 
-                    <select name="state_id" id="state" class="form-control">                        
-                        <option selected disabled> Escolha um estado... </option>
-                        @foreach ($states_list as $state)
+    @include('templates.modalDelete', [
+                'title'  => 'REMOVER REGISTRO',
+                'text'   => 'Desejas realmente remover o registro #'
+            ])
 
-                            <option value="{{ $state->id }}"> {{ $state->name }} </option>
-
-                        @endforeach
-                    </select>
-                        
-                </div>
-            
-            </div>           
-       
-            <div class="form-row justify-content-center">
-            
-                <input type="submit" value="Adicionar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
-
-            </div>
-
-        {!! Form::close() !!}        
-
-    </section>
-    
 </main>
-
-<div class="row justify-content-center">
-    
-    @include('cities.list', ['cities_list' => $cities_list])
-
-</div>
 
 @endsection()
 
