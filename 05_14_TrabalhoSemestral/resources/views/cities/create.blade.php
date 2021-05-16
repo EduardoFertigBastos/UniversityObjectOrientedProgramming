@@ -4,7 +4,7 @@
 
 <header class="row justify-content-center mt-3">
 
-    <h1> Criar Estados </h1>
+    <h1> Criar Cidades </h1>
 
 </header>
 
@@ -13,6 +13,8 @@
     <section class="col-10 col-sm-12 col-md-8 col-lg-8">
 
         <form action="{{route('cities.store')}}" method="POST">
+
+            {{ csrf_field() }}
 
             <div class="form-row justify-content-center">
 

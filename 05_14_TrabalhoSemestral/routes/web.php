@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StatesController;
+use App\Http\Controllers\CitiesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,46 +31,25 @@ Route::post('/states',                   [StatesController::class, 'store']) ->n
 Route::post('/states/{state_id}/update', [StatesController::class, 'update'])->name('states.update');
 
 /**
-     * Addresses
-     */
+ * CITIES
+ */
 
-    Route::get('/addresses',                      ['as' => 'addresses.index',  'uses' => 'AddressesController@index']) ;
-    Route::get('/addresses/{address_id}/delete',  ['as' => 'addresses.delete', 'uses' => 'AddressesController@delete']);
-    Route::get('/addresses/{address_id}/edit',    ['as' => 'addresses.edit',   'uses' => 'AddressesController@edit'])  ;
-    Route::get('/addresses/{address_id}/show',    ['as' => 'addresses.show',   'uses' => 'AddressesController@show'])  ;
-    Route::post('/addresses/{address_id}/update', ['as' => 'addresses.update', 'uses' => 'AddressesController@update']);
-    Route::post('/addresses',                     ['as' => 'addresses.store',  'uses' => 'AddressesController@store']) ;
+Route::get('/cities',                   [CitiesController::class, 'index']) ->name('cities.index');
+Route::get('/cities/create',            [CitiesController::class, 'create'])->name('cities.create');
+Route::get('/cities/{city_id}/delete',  [CitiesController::class, 'delete'])->name('cities.delete');
+Route::get('/cities/{city_id}/edit',    [CitiesController::class, 'edit'])  ->name('cities.edit');
+Route::get('/cities/{city_id}/show',    [CitiesController::class, 'show'])  ->name('cities.show');
+Route::post('/cities',                  [CitiesController::class, 'store']) ->name('cities.store');
+Route::post('/cities/{city_id}/update', [CitiesController::class, 'update'])->name('cities.update');
 
-    /**
-     * CITIES
-     */
+/**
+ * Addresses
+ */
 
-    Route::get('/cities',                   ['as' => 'cities.index',  'uses' => 'CitiesController@index']) ;
-    Route::get('/cities/{city_id}/delete',  ['as' => 'cities.delete', 'uses' => 'CitiesController@delete']);
-    Route::get('/cities/{city_id}/edit',    ['as' => 'cities.edit',   'uses' => 'CitiesController@edit'])  ;
-    Route::get('/cities/{city_id}/show',    ['as' => 'cities.show',   'uses' => 'CitiesController@show'])  ;
-    Route::post('/cities',                  ['as' => 'cities.store',  'uses' => 'CitiesController@store']) ;
-    Route::post('/cities/{city_id}/update', ['as' => 'cities.update', 'uses' => 'CitiesController@update']);
-
-    /**
-     * PRODUCT
-     */
-
-    Route::get('/products',                      ['as' => 'products.index',  'uses' => 'ProductsController@index']) ;
-    Route::get('/products/{product_id}/delete',  ['as' => 'products.delete', 'uses' => 'ProductsController@delete']);
-    Route::get('/products/{product_id}/edit',    ['as' => 'products.edit',   'uses' => 'ProductsController@edit'])  ;
-    Route::get('/products/{product_id}/show',    ['as' => 'products.show',   'uses' => 'ProductsController@show'])  ;
-    Route::post('/products',                     ['as' => 'products.store',  'uses' => 'ProductsController@store']) ;
-    Route::post('/products/{product_id}/update', ['as' => 'products.update', 'uses' => 'ProductsController@update']);
-
-    /**
-     * PRODUCT TYPES
-     */
-
-    Route::get('/productTypes',                          ['as' => 'productTypes.index',  'uses' => 'ProductTypesController@index']) ;
-    Route::get('/productTypes/{productType_id}/delete',  ['as' => 'productTypes.delete', 'uses' => 'ProductTypesController@delete']);
-    Route::get('/productTypes/{productType_id}/edit',    ['as' => 'productTypes.edit',   'uses' => 'ProductTypesController@edit'])  ;
-    Route::get('/productTypes/{productType_id}/show',    ['as' => 'productTypes.show',   'uses' => 'ProductTypesController@show'])  ;
-    Route::post('/productTypes',                         ['as' => 'productTypes.store',  'uses' => 'ProductTypesController@store']) ;
-    Route::post('/productTypes/{productType_id}/update', ['as' => 'productTypes.update', 'uses' => 'ProductTypesController@update']);
+Route::get('/addresses',                      ['as' => 'addresses.index',  'uses' => 'AddressesController@index']) ;
+Route::get('/addresses/{address_id}/delete',  ['as' => 'addresses.delete', 'uses' => 'AddressesController@delete']);
+Route::get('/addresses/{address_id}/edit',    ['as' => 'addresses.edit',   'uses' => 'AddressesController@edit'])  ;
+Route::get('/addresses/{address_id}/show',    ['as' => 'addresses.show',   'uses' => 'AddressesController@show'])  ;
+Route::post('/addresses/{address_id}/update', ['as' => 'addresses.update', 'uses' => 'AddressesController@update']);
+Route::post('/addresses',                     ['as' => 'addresses.store',  'uses' => 'AddressesController@store']) ;
 

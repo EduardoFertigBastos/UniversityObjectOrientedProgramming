@@ -26,25 +26,19 @@
                     <tr>
                         <th scope="row"> #{{ $city->id }} </td>
                         <td> {{ $city->name }} </td>
-                        <td> {{ $city->stateName }} </td>
+                        <td> {{ $city->state->name }} </td>
                         <td>
                             <a href="{{ route('cities.edit', $city->id) }}" class="btn btn-primary">
-                                <i class="fas fa-edit">
-                                    Editar
-                                </i>
+                                <i class="fas fa-edit"></i>
                             </a>
 
                             <a href="#modalDelete" onclick="addRemoveButton('cities.delete', {{ $city->id }})"
                                     class="btn btn-danger" data-toggle="modal" data-target="#modalDelete">
-                                <i class="fas fa-trash-alt">
-                                    Remover
-                                </i>
+                                <i class="fas fa-trash-alt"></i>
                             </a>
 
                             <a href="{{ route('cities.show', $city->id) }}" class="btn btn-info">
-                                <i class="fas fa-eye">
-                                    Visualizar
-                                </i>
+                                <i class="fas fa-eye"></i>
                             </a>
                         </td>
                     </tr>
@@ -52,6 +46,9 @@
                 @endif
             </tbody>
         </table>
+        <div class="form-row justify-content-center">
+            <a href="{{route('cities.create')}}" class="col-6 btn btn-primary"> Cadastrar </a>
+        </div>
     </div>
 
     @include('templates.modalDelete', [

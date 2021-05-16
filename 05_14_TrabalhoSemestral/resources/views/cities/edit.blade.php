@@ -14,6 +14,8 @@
 
         <form action="{{route('cities.update', $city->id)}}" method="POST">
 
+            {{ csrf_field() }}
+
             <div class="form-row justify-content-center">
 
                 <div class="form-group col-sm-8 col-md-10 col-lg-8">
