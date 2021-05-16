@@ -3,98 +3,70 @@
 @section('content')
 
 <header class="row justify-content-center mt-3">
-    
+
     <h1> Endereços </h1>
 
 </header>
 
 <main class="row justify-content-center mt-3">
 
-    <section class="col-10 col-sm-12 col-md-8 col-lg-8">
+    <div class="col-10 col-sm-12 col-md-10 col-lg-10 mt-4">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <td scope="col"> Código </td>
+                    <td scope="col"> CEP </td>
+                    <td scope="col"> Descrição </td>
+                    <td scope="col"> Número </td>
+                    <td scope="col"> Bairro </td>
+                    <td scope="col"> Complemento </td>
+                    <td scope="col"> Cidade </td>
+                    <td scope="col"> Menu </td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (isset($addresses_list))
+                    @foreach ($addresses_list as $address)
+                    <tr>
+                        <th scope="row"> #{{ $address->id }} </td>
+                        <td> {{ $address->cep }} </td>
+                        <td> {{ $address->description }} </td>
+                        <td> {{ $address->numberHouse }} </td>
+                        <td> {{ $address->neighborhood }} </td>
+                        <td> {{ $address->complement }} </td>
+                        <td> {{ $address->city->name }} </td>
+                        <td>
+                            <a href="{{ route('addresses.edit', $address->id) }}" class="btn btn-primary">
+                                <i class="fas fa-edit"></i>
+                            </a>
 
-        {!! Form::open(['route' => 'addresses.store', 'method' => 'post', 'class' => '']) !!}
-        
-            <div class="form-row justify-content-center">
+                            <a href="#modalDelete" onclick="addRemoveButton('addresses.delete', {{ $address->id }})"
+                                                        class="btn btn-danger" data-toggle="modal" data-target="#modalDelete">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
 
-                <div class="form-group col-sm-8 col-md-3 col-lg-3">
-            
-                    <label for="cep"> Cep: </label>
-                    <input type="number" class="form-control" id="cep" name="cep" placeholder="Cep">
-            
-                </div>
+                            <a href="{{ route('addresses.show', $address->id) }}" class="btn btn-info">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    @endforeach
+                @endif
+            </tbody>
+        </table>
 
-                <div class="form-group col-sm-8 col-md-7 col-lg-5">
-            
-                    <label for="description"> Descrição: </label>
-                    <input type="text" class="form-control" id="description" name="description" placeholder="Descrição">
-            
-                </div>
-                
-            </div>    
-        
-            <div class="form-row justify-content-center">
+        <div class="form-row justify-content-center">
+            <a href="{{route('addresses.create')}}" class="col-6 btn btn-primary"> Cadastrar </a>
+        </div>
+    </div>
 
-                <div class="form-group col-sm-8 col-md-2 col-lg-2">
-            
-                    <label for="numberHouse"> Número da Casa: </label>
-                    <input type="text" class="form-control" id="numberHouse" name="numberHouse" placeholder="Número da casa">
-            
-                </div>
+    @include('templates.modalDelete', [
+                'title'  => 'REMOVER REGISTRO',
+                'text'   => 'Desejas realmente remover o registro #'
+            ])
 
-                <div class="form-group col-sm-8 col-md-8 col-lg-6">
-            
-                    <label for="neighborhood"> Bairro: </label>
-                    <input type="text" class="form-control" id="neighborhood" name="neighborhood" placeholder="Bairro">
-            
-                </div>
-                
-            </div>
-        
-            <div class="form-row justify-content-center">
 
-                <div class="form-group col-sm-8 col-md-10 col-lg-8">
-            
-                    <label for="complement"> Complemento: </label>
-                    <input type="text" class="form-control" id="complement" name="complement" placeholder="Complemento">
-            
-                </div>
-
-            </div>
-
-            <div class="form-row justify-content-center">
-            
-                <div class="form-group col-sm-8 col-md-10 col-lg-8">
-            
-                    <label for="city"> Cidade: </label>
-                    <select name="city_id" id="city" class="form-control">
-                        <option selected disabled> Escolha uma cidade... </option>
-                        @foreach ($cities_list as $city)
-
-                            <option value="{{ $city->id }}"> {{ $city->name }} </option>
-
-                        @endforeach
-                    </select>
-                        
-                </div>
-            </div>           
-       
-            <div class="form-row justify-content-center">
-            
-                <input type="submit" value="Adicionar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
-
-            </div>
-
-        {!! Form::close() !!}        
-
-    </section>
-    
 </main>
-
-<section class="row justify-content-center">
-    
-    @include('addresses.list', ['addresses_list' => $addresses_list])            
-    
-</section>
 
 @endsection()
 

@@ -46,6 +46,7 @@
                 @endif
             </tbody>
         </table>
+
         <div class="form-row justify-content-center">
             <a href="{{route('cities.create')}}" class="col-6 btn btn-primary"> Cadastrar </a>
         </div>
