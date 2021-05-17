@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StatesController;
 use App\Http\Controllers\CitiesController;
+use App\Http\Controllers\AddressesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,13 +44,14 @@ Route::post('/cities',                  [CitiesController::class, 'store']) ->na
 Route::post('/cities/{city_id}/update', [CitiesController::class, 'update'])->name('cities.update');
 
 /**
- * Addresses
+ * ADDRESSES
  */
 
-Route::get('/addresses',                      ['as' => 'addresses.index',  'uses' => 'AddressesController@index']) ;
-Route::get('/addresses/{address_id}/delete',  ['as' => 'addresses.delete', 'uses' => 'AddressesController@delete']);
-Route::get('/addresses/{address_id}/edit',    ['as' => 'addresses.edit',   'uses' => 'AddressesController@edit'])  ;
-Route::get('/addresses/{address_id}/show',    ['as' => 'addresses.show',   'uses' => 'AddressesController@show'])  ;
-Route::post('/addresses/{address_id}/update', ['as' => 'addresses.update', 'uses' => 'AddressesController@update']);
-Route::post('/addresses',                     ['as' => 'addresses.store',  'uses' => 'AddressesController@store']) ;
+Route::get('/addresses',                      [AddressesController::class, 'index']) ->name('addresses.index');
+Route::get('/addresses/create',               [AddressesController::class, 'create'])->name('addresses.create');
+Route::get('/addresses/{address_id}/delete',  [AddressesController::class, 'delete'])->name('addresses.delete');
+Route::get('/addresses/{address_id}/edit',    [AddressesController::class, 'edit'])  ->name('addresses.edit');
+Route::get('/addresses/{address_id}/show',    [AddressesController::class, 'show'])  ->name('addresses.show');
+Route::post('/addresses',                     [AddressesController::class, 'store']) ->name('addresses.store');
+Route::post('/addresses/{address_id}/update', [AddressesController::class, 'update'])->name('addresses.update');
 

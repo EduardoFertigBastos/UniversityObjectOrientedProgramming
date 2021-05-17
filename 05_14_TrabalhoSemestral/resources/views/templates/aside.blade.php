@@ -9,7 +9,7 @@
         <a href="{{route('cities.index')}}" class="bg-secondary text-light col-12 py-3">Cities</a>
     </div>
     <div class="row text-center border-top border-transparent">
-        <a href="Produto" class="bg-secondary text-light col-12 py-3">Produto</a>
+        <a href="{{route('addresses.index')}}" class="bg-secondary text-light col-12 py-3">Address</a>
     </div>
     <div class="row text-center border-top border-transparent">
         <a href="Rato" class="bg-secondary text-light col-12 py-3">Rato</a>
