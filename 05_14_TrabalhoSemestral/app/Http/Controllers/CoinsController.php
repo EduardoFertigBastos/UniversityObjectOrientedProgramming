@@ -27,12 +27,10 @@ class CoinsController extends Controller
     {
         try {
             $coins_list = Coin::orderBy('id')->get();
-
             return view('coins.index', compact('coins_list'));
         } catch (Exception $e) {
             $e;
         }
-
     }
 
     public function create()
@@ -44,8 +42,7 @@ class CoinsController extends Controller
     {
         try {
             Coin::create([
-                'name'     => $request->name,
-                'initials' => $request->initials,
+                'name'     => $request->name
             ]);
 
             return redirect()->route('coins.index');
@@ -79,8 +76,7 @@ class CoinsController extends Controller
     {
         try {
             Coin::where('id', $id)->update([
-                'name'     => $request->name,
-                'initials' => $request->initials,
+                'name'     => $request->name
             ]);
 
             return redirect()->route('coins.index');
