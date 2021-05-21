@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AddressesController;
+use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StatesController;
-use App\Http\Controllers\CitiesController;
-use App\Http\Controllers\AddressesController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,4 +55,16 @@ Route::get('/addresses/{address_id}/edit',    [AddressesController::class, 'edit
 Route::get('/addresses/{address_id}/show',    [AddressesController::class, 'show'])  ->name('addresses.show');
 Route::post('/addresses',                     [AddressesController::class, 'store']) ->name('addresses.store');
 Route::post('/addresses/{address_id}/update', [AddressesController::class, 'update'])->name('addresses.update');
+
+/**
+ * USERS
+ */
+
+Route::get('/users',                   [UsersController::class, 'index']) ->name('users.index');
+Route::get('/users/create',            [UsersController::class, 'create'])->name('users.create');
+Route::get('/users/{user_id}/delete',  [UsersController::class, 'delete'])->name('users.delete');
+Route::get('/users/{user_id}/edit',    [UsersController::class, 'edit'])  ->name('users.edit');
+Route::get('/users/{user_id}/show',    [UsersController::class, 'show'])  ->name('users.show');
+Route::post('/users',                  [UsersController::class, 'store']) ->name('users.store');
+Route::post('/users/{user_id}/update', [UsersController::class, 'update'])->name('users.update');
 

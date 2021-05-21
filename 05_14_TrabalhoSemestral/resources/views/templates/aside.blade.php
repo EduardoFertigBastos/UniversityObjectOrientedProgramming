@@ -12,7 +12,7 @@
         <a href="{{route('addresses.index')}}" class="bg-secondary text-light col-12 py-3">Address</a>
     </div>
     <div class="row text-center border-top border-transparent">
-        <a href="Rato" class="bg-secondary text-light col-12 py-3">Rato</a>
+        <a href="{{route('users.index')}}" class="bg-secondary text-light col-12 py-3">Users</a>
     </div>
     <div class="row text-center border-top border-transparent">
         <a href="Vaca" class="bg-secondary text-light col-12 py-3">Vaca</a>

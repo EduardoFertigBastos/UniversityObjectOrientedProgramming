@@ -2,26 +2,28 @@
 
 @section('content')
 
-<header class="row justify-content-center mt-4 mx-auto">
-    <h2>
-        Atualizando #{{$user->id}}
-    </h2>
+<header class="row justify-content-center mt-3">
+
+    <h1> Criar Usuários </h1>
+
 </header>
 
-<main class="row justify-content-center mt-2">
+<main class="row justify-content-center mt-3">
 
     <section class="col-10 col-sm-12 col-md-8 col-lg-8">
 
-        <form action="{{route('users.update', $user->id)}}" method="POST">
+        <form action="{{route('users.store')}}" method="POST">
 
             {{ csrf_field() }}
+
+            @include('templates.showError')
 
             <div class="form-row justify-content-center">
 
                 <div class="form-group col-sm-6 col-md-8 col-lg-6">
 
                     <label for="name"> Nome: </label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome" value="{{$user->name}}">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nome">
 
                 </div>
 
@@ -33,11 +35,7 @@
                         <?php
                         $genders = ['Masculino', 'Feminino', 'Outros'];
                         for ($x = 0; $x < 3; $x++) {
-                            ?>'<option value="{{$x}}"
-                                    {{$user->gender == $x ? 'selected' : '' }}>
-                                    {{$genders[$x] }}
-                                </option>';
-                            <?php
+                            echo '<option value="'.$x.'">'.$genders[$x].'</option>';
                         }
                         ?>
                     </select>
@@ -51,25 +49,24 @@
                 <div class="form-group col-sm-5 col-md-7 col-lg-5">
 
                     <label for="cpf"> CPF: </label>
-                    <input type="number" class="form-control" id="cpf" name="cpf" placeholder="Cpf"  value="{{ $user->cpf }}">
+                    <input type="number" class="form-control" id="cpf" name="cpf" placeholder="Cpf">
 
                 </div>
 
                 <div class="form-group col-sm-3 col-md-3 col-lg-3">
 
                     <label for="birth"> Nascimento: </label>
-                    <input type="date" class="form-control" id="birth" name="birth" placeholder="Nascimento" value="{{ $user->birth }}">
+                    <input type="date" class="form-control" id="birth" name="birth" placeholder="Nascimento">
 
                 </div>
 
             </div>
-
             <div class="form-row justify-content-center">
 
                 <div class="form-group col-sm-5 col-md-7 col-lg-5">
 
                     <label for="city"> Cidade: </label>
-                    <input type="text" class="form-control" id="city" name="city" placeholder="Cidade" value="{{ $user->address->city->name }}">
+                    <input type="text" class="form-control" id="city" name="city" placeholder="Cidade">
 
                 </div>
 
@@ -83,10 +80,6 @@
 
                             <option value="{{ $state->id }}"> {{ $state->name }} </option>
 
-                            <option value="{{ $state->id }}"
-                                {{ $user->address->city->state_id == $state->id ? 'selected' : '' }} >
-                                {{ $state->name }}
-                            </option>
                         @endforeach
                     </select>
 
@@ -99,14 +92,14 @@
                 <div class="form-group col-sm-8 col-md-3 col-lg-3">
 
                     <label for="cep"> Cep: </label>
-                    <input type="number" class="form-control" id="cep" name="cep" placeholder="Cep" value="{{ $user->address->cep }}">
+                    <input type="number" class="form-control" id="cep" name="cep" placeholder="Cep">
 
                 </div>
 
                 <div class="form-group col-sm-8 col-md-7 col-lg-5">
 
                     <label for="description"> Descrição: </label>
-                    <input type="text" class="form-control" id="description" name="description" placeholder="Descrição" value="{{ $user->address->description }}">
+                    <input type="text" class="form-control" id="description" name="description" placeholder="Descrição">
 
                 </div>
 
@@ -117,14 +110,14 @@
                 <div class="form-group col-sm-8 col-md-8 col-lg-6">
 
                     <label for="neighborhood"> Bairro: </label>
-                    <input type="text" class="form-control" id="neighborhood" name="neighborhood" placeholder="Bairro" value="{{ $user->address->neighborhood }}">
+                    <input type="text" class="form-control" id="neighborhood" name="neighborhood" placeholder="Bairro">
 
                 </div>
 
                 <div class="form-group col-sm-8 col-md-2 col-lg-2">
 
                     <label for="numberHouse"> Número da Casa: </label>
-                    <input type="text" class="form-control" id="numberHouse" name="numberHouse" placeholder="Número da casa" value="{{ $user->address->numberHouse }}">
+                    <input type="text" class="form-control" id="numberHouse" name="numberHouse" placeholder="Número da casa">
 
                 </div>
 
@@ -135,7 +128,7 @@
                 <div class="form-group col-sm-8 col-md-10 col-lg-8">
 
                     <label for="complement"> Complemento: </label>
-                    <input type="text" class="form-control" id="complement" name="complement" placeholder="Complemento" value="{{ $user->address->complement }}">
+                    <input type="text" class="form-control" id="complement" name="complement" placeholder="Complemento">
 
                 </div>
 
@@ -146,7 +139,7 @@
                 <div class="form-group col-sm-8 col-md-10 col-lg-8">
 
                     <label for="email"> E-mail: </label>
-                    <input type="mail" class="form-control" id="email" name="email" placeholder="E-mail" value="{{ $user->email }}">
+                    <input type="mail" class="form-control" id="email" name="email" placeholder="E-mail">
 
                 </div>
 
@@ -174,47 +167,17 @@
 
             </div>
 
-            <hr>
-
             <div class="form-row justify-content-center">
 
-                <div class="form-group col-sm-8 col-md-10 col-lg-8">
-
-                    <label for="oldPassword"> Antiga Senha: </label>
-                    <input type="password" class="form-control" id="oldPassword" name="oldPassword" placeholder="Antiga Senha...">
-
-                </div>
+                <input type="submit" value="Adicionar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
 
             </div>
-
-            <div class="form-row justify-content-center">
-
-                <a href="#modalUpdate" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2 mt-1"
-                                                    data-toggle="modal" data-target="#modalUpdate">
-                    Atualizar
-                </a>
-
-            </div>
-
-            @include('templates.modalUpdate', [
-                        'title'  => 'ALTERAR REGISTRO',
-                        'text'   => 'Desejas realmente alterar o registro #' . $user->id . '?'
-                    ])
 
         </form>
-
-        <div class="form-row justify-content-center">
-
-            <a href="#" onclick="goBack()" class="btn btn-danger col-sm-8 col-md-10 col-lg-8 py-2 mt-1">
-                Voltar
-            </a>
-
-        </div>
 
     </section>
 
 </main>
-
 
 @endsection()
 

@@ -103,3 +103,4 @@
 
 @endsection()
 
+'name', 'birth', 'address_id', 'gender', 'cpf', 'email', 'password'
