@@ -17,6 +17,8 @@ class CreateBoughtsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('coin_id');
+            $table->decimal('amount',10, 2);
+            $table->decimal('price',10, 2);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

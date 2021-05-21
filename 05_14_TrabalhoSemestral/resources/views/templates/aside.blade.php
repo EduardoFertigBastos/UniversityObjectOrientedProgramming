@@ -15,6 +15,12 @@
         <a href="{{route('users.index')}}" class="bg-secondary text-light col-12 py-3">Users</a>
     </div>
     <div class="row text-center border-top border-transparent">
+        <a href="{{route('coins.index')}}" class="bg-secondary text-light col-12 py-3">Coins</a>
+    </div>
+    <div class="row text-center border-top border-transparent">
+        <a href="{{route('boughts.index')}}" class="bg-secondary text-light col-12 py-3">Boughts</a>
+    </div>
+    <div class="row text-center border-top border-transparent">
         <a href="Vaca" class="bg-secondary text-light col-12 py-3">Vaca</a>
     </div>
     <div class="row text-center border-top border-transparent">

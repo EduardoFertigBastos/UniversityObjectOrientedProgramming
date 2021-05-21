@@ -6,6 +6,8 @@ use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StatesController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\CoinsController;
+use App\Http\Controllers\BoughtsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,4 +69,28 @@ Route::get('/users/{user_id}/edit',    [UsersController::class, 'edit'])  ->name
 Route::get('/users/{user_id}/show',    [UsersController::class, 'show'])  ->name('users.show');
 Route::post('/users',                  [UsersController::class, 'store']) ->name('users.store');
 Route::post('/users/{user_id}/update', [UsersController::class, 'update'])->name('users.update');
+
+/**
+ * COINS
+ */
+
+Route::get('/coins',                   [CoinsController::class, 'index']) ->name('coins.index');
+Route::get('/coins/create',            [CoinsController::class, 'create'])->name('coins.create');
+Route::get('/coins/{coin_id}/delete',  [CoinsController::class, 'delete'])->name('coins.delete');
+Route::get('/coins/{coin_id}/edit',    [CoinsController::class, 'edit'])  ->name('coins.edit');
+Route::get('/coins/{coin_id}/show',    [CoinsController::class, 'show'])  ->name('coins.show');
+Route::post('/coins',                  [CoinsController::class, 'store']) ->name('coins.store');
+Route::post('/coins/{coin_id}/update', [CoinsController::class, 'update'])->name('coins.update');
+
+/**
+ * BOUGHTS
+ */
+
+Route::get('/boughts',                     [BoughtsController::class, 'index']) ->name('boughts.index');
+Route::get('/boughts/create',              [BoughtsController::class, 'create'])->name('boughts.create');
+Route::get('/boughts/{bought_id}/delete',  [BoughtsController::class, 'delete'])->name('boughts.delete');
+Route::get('/boughts/{bought_id}/edit',    [BoughtsController::class, 'edit'])  ->name('boughts.edit');
+Route::get('/boughts/{bought_id}/show',    [BoughtsController::class, 'show'])  ->name('boughts.show');
+Route::post('/boughts',                    [BoughtsController::class, 'store']) ->name('boughts.store');
+Route::post('/boughts/{bought_id}/update', [BoughtsController::class, 'update'])->name('boughts.update');
 
