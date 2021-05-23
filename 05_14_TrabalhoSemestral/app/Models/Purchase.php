@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Bought.
+ * Class Purchase.
  *
  * @package namespace App\Models;
  */
-class Bought extends Model
+class Purchase extends Model
 {
     use HasFactory;
 
@@ -22,5 +22,10 @@ class Bought extends Model
     protected $fillable = ['user_id', 'coin_id', 'amount', 'price'];
 
     public $timestamps = true;
+
+    public function coin()
+    {
+        return $this->belongsTo(Coin::class, 'coin_id', 'id');
+    }
 
 }

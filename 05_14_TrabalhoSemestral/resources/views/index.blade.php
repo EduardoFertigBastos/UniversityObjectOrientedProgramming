@@ -7,46 +7,35 @@
             <div class="col-10 d-flex flex-column">
                 <section id="sectionTable">
                     <table class="table table-striped">
-                        <thead class="">
-                            <tr class="">
-                                <th class="">#</th>
-                                <th class="">Nome</th>
-                                <th class="">E-mail</th>
-                                <th class="">Data de Cadastro</th>
-                                <th class="">Ações</th>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Moeda</th>
+                                <th>Total</th>
+                                <th>Ações</th>
                             </tr>
                         </thead>
-                        <tbody class="">
-                            <tr class="">
-                                <td class="">1</td>
-                                <td class="">Eduardo</td>
-                                <td class="">eduardo@gmail.com</td>
-                                <td class="">2001-02-05 00:00:00</td>
-                                <td class="">
-                                    <a href="?alterar=1">Alterar</a> <a href="?deletar=1">Deletar</a>
-                                </td>
-                            </tr>
+                        <tbody>
+                            @if (isset($total_list))
+                                @foreach ($total_list as $total)
+                                    <tr>
+                                        <td>{{$total->coin_id}}</td>
+                                        <td>{{$total->coin_name}}</td>
+                                        <td>R$ {{number_format($total->soma, 2, ',', '.')}}</td>
+                                        <td>
+                                            <a href="{{ route('cities.show', $total->coin_id) }}" class="btn btn-info">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="4">Não há compras registradas.</td>
+                                </tr>
+                            @endif
                         </tbody>
                     </table>
-                    <nav class="d-flex justify-content-center">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a href="#" target="" class="page-link">Previous</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" target="" class="page-link">1</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" target="" class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" target="" class="page-link">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" target="" class="page-link">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
                 </section>
             </div>
         </main>

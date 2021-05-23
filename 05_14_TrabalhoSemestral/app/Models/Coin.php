@@ -21,4 +21,9 @@ class Coin extends Model
      */
     protected $fillable = ['name'];
 
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
+
 }

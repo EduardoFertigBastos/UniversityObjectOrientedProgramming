@@ -27,6 +27,7 @@ class CoinsController extends Controller
     {
         try {
             $coins_list = Coin::orderBy('id')->get();
+
             return view('coins.index', compact('coins_list'));
         } catch (Exception $e) {
             $e;

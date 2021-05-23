@@ -7,7 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StatesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CoinsController;
-use App\Http\Controllers\BoughtsController;
+use App\Http\Controllers\PurchasesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,11 +86,11 @@ Route::post('/coins/{coin_id}/update', [CoinsController::class, 'update'])->name
  * BOUGHTS
  */
 
-Route::get('/boughts',                     [BoughtsController::class, 'index']) ->name('boughts.index');
-Route::get('/boughts/create',              [BoughtsController::class, 'create'])->name('boughts.create');
-Route::get('/boughts/{bought_id}/delete',  [BoughtsController::class, 'delete'])->name('boughts.delete');
-Route::get('/boughts/{bought_id}/edit',    [BoughtsController::class, 'edit'])  ->name('boughts.edit');
-Route::get('/boughts/{bought_id}/show',    [BoughtsController::class, 'show'])  ->name('boughts.show');
-Route::post('/boughts',                    [BoughtsController::class, 'store']) ->name('boughts.store');
-Route::post('/boughts/{bought_id}/update', [BoughtsController::class, 'update'])->name('boughts.update');
+Route::get('/purchases',                       [PurchasesController::class, 'index']) ->name('purchases.index');
+Route::get('/purchases/create',                [PurchasesController::class, 'create'])->name('purchases.create');
+Route::get('/purchases/{purchase_id}/delete',  [PurchasesController::class, 'delete'])->name('purchases.delete');
+Route::get('/purchases/{purchase_id}/edit',    [PurchasesController::class, 'edit'])  ->name('purchases.edit');
+Route::get('/purchases/{purchase_id}/show',    [PurchasesController::class, 'show'])  ->name('purchases.show');
+Route::post('/purchases',                      [PurchasesController::class, 'store']) ->name('purchases.store');
+Route::post('/purchases/{purchase_id}/update', [PurchasesController::class, 'update'])->name('purchases.update');
 

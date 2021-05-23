@@ -11,7 +11,7 @@
 <main class="row justify-content-center mt-3">
 
     <div class="col-10 col-sm-10 col-md-8 col-lg-6 mt-4">
-        <table class="table table-hover">
+        <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
                     <td scope="col"> Código </td>
