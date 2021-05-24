@@ -16,6 +16,10 @@
                 <a href="" class="nav-link disabled">disabled</a>
             </li>
         </ul>
-        <a href="logoff.php" target="" class="btn btn-warning">Sair</a>
+        @if (Route::getCurrentRoute()->getName() != 'index')
+            <a href="#" onclick="goBack()" class="btn btn-warning">
+                Voltar
+            </a>
+        @endif
     </div>
 </nav>

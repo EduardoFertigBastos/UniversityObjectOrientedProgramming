@@ -23,7 +23,7 @@
                                         <td>{{$total->coin_name}}</td>
                                         <td>R$ {{number_format($total->soma, 2, ',', '.')}}</td>
                                         <td>
-                                            <a href="{{ route('cities.show', $total->coin_id) }}" class="btn btn-info">
+                                            <a href="{{ route('dashboard.purchasesPerCoins', $total->coin_id) }}" class="btn btn-info">
                                                 <i class="fas fa-eye"></i>
                                             </a>
                                         </td>

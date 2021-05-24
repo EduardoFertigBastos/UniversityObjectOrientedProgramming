@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Purchase;
+use Illuminate\Support\Facades\Route;
 
 class DashboardController extends Controller
 {
@@ -17,6 +19,13 @@ class DashboardController extends Controller
                                             coins.id = purchases.coin_id
                                    GROUP BY coins.id, coins.name');
 
-        return view('index', compact('total_list'));
+        return view('dashboard.index', compact('total_list'));
+    }
+
+    public function purchasesPerCoins($coin_id)
+    {
+        $purchases_list = Purchase::where('coin_id', $coin_id)->get();
+
+        return view('dashboard.purchasePerCoin', compact('purchases_list'));
     }
 }

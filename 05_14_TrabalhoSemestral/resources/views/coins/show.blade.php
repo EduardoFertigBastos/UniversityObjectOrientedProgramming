@@ -5,7 +5,7 @@
 <div class="card text-center">
     <header class="card-header row justify-content-center">
         <h2>
-            Visualizando o Registro #{{$purchase->id}}
+            Visualizando o Registro #{{ $coin->id }}
         </h2>
     </header>
     <main class="card-body row justify-content-center mt-3">
@@ -16,9 +16,9 @@
 
                 <div class="form-group col-sm-8 col-md-10 col-lg-8">
 
-                    <label for="coin"> Moeda: </label>
-                    <input type="text" class="form-control" id="coin"
-                        value="{{$purchase->coin->name}}" name="coin" disabled>
+                    <label for="id"> Código: </label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        placeholder="Código" value="{{ $coin->id }}" disabled>
 
                 </div>
 
@@ -26,19 +26,11 @@
 
             <div class="form-row justify-content-center">
 
-                <div class="form-group col-sm-4 col-md-5 col-lg-4">
+                <div class="form-group col-sm-8 col-md-10 col-lg-8">
 
-                    <label for="amount"> Quantidade: </label>
-                    <input type="number" class="form-control" id="amount"
-                        value="{{$purchase->amount}}" name="amount" disabled>
-
-                </div>
-
-                <div class="form-group col-sm-4 col-md-5 col-lg-4">
-
-                    <label for="price"> Preço: </label>
-                    <input type="number" class="form-control" id="price"
-                            value="{{$purchase->price}}" name="price" disabled>
+                    <label for="name"> Nome: </label>
+                    <input type="text" class="form-control" id="name" name="name"
+                        placeholder="Nome" value="{{ $coin->name }}" disabled>
 
                 </div>
 
@@ -57,5 +49,6 @@
     </main>
 
 </div>
+
 @endsection()
 

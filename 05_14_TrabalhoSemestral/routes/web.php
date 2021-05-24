@@ -20,7 +20,8 @@ use App\Http\Controllers\PurchasesController;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index'])->name('index');
+Route::get('/',              [DashboardController::class, 'index'])            ->name('index');
+Route::get('/all/{coin_id}', [DashboardController::class, 'purchasesPerCoins'])->name('dashboard.purchasesPerCoins');
 
 /**
  * STATES

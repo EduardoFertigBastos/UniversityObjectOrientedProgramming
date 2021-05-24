@@ -2,73 +2,80 @@
 
 @section('content')
 
-<header class="row justify-content-center mt-3">
+<div class="card text-center">
+    <header class="card-header row justify-content-center">
+        <h1>Compras</h1>
+    </header>
+    <main class="card-body row justify-content-center mt-3">
 
-    <h1> Compras </h1>
+        <section class="col-10 col-sm-12 col-md-8 col-lg-8">
 
-</header>
+            <form action="{{route('purchases.store')}}" method="POST">
 
-<main class="row justify-content-center mt-3">
+                {{ csrf_field() }}
 
-    <section class="col-10 col-sm-12 col-md-8 col-lg-8">
+                <div class="form-row justify-content-center">
 
-        <form action="{{route('purchases.store')}}" method="POST">
+                    <div class="form-group col-sm-8 col-md-10 col-lg-8">
 
-            {{ csrf_field() }}
+                        <label for="coin"> Coin: </label>
 
-            <div class="form-row justify-content-center">
+                        <select name="coin_id" id="coin" class="form-control">
+                            <option selected disabled> Escolha uma moeda... </option>
 
-                <div class="form-group col-sm-8 col-md-10 col-lg-8">
+                            @if(isset($coins_list))
+                                @foreach ($coins_list as $coin)
 
-                    <label for="coin"> Coin: </label>
+                                    <option value="{{ $coin->id }}"> {{ $coin->name }} </option>
 
-                    <select name="coin_id" id="coin" class="form-control">
-                        <option selected disabled> Escolha uma moeda... </option>
+                                @endforeach
+                            @endif
 
-                        @if(isset($coins_list))
-                            @foreach ($coins_list as $coin)
+                        </select>
 
-                                <option value="{{ $coin->id }}"> {{ $coin->name }} </option>
-
-                            @endforeach
-                        @endif
-
-                    </select>
-
-                </div>
-
-            </div>
-
-            <div class="form-row justify-content-center">
-
-                <div class="form-group col-sm-4 col-md-5 col-lg-4">
-
-                    <label for="amount"> Quantidade: </label>
-                    <input type="number" class="form-control" id="amount" name="amount" placeholder="Quantidade...">
+                    </div>
 
                 </div>
 
-                <div class="form-group col-sm-4 col-md-5 col-lg-4">
+                <div class="form-row justify-content-center">
 
-                    <label for="price"> Preço: </label>
-                    <input type="number" class="form-control" id="price" name="price" placeholder="Preço...">
+                    <div class="form-group col-sm-4 col-md-5 col-lg-4">
+
+                        <label for="amount"> Quantidade: </label>
+                        <input type="number" class="form-control" id="amount" name="amount" placeholder="Quantidade...">
+
+                    </div>
+
+                    <div class="form-group col-sm-4 col-md-5 col-lg-4">
+
+                        <label for="price"> Preço: </label>
+                        <input type="number" class="form-control" id="price" name="price" placeholder="Preço...">
+
+                    </div>
 
                 </div>
 
-            </div>
 
+                <div class="form-row justify-content-center">
 
-            <div class="form-row justify-content-center">
+                    <input type="submit" value="Adicionar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
 
-                <input type="submit" value="Adicionar" class="btn btn-primary col-sm-8 col-md-10 col-lg-8 py-2">
+                </div>
 
-            </div>
+                <div class="form-row justify-content-center">
 
-        </form>
+                    <a href="#" onclick="goBack()" class="btn btn-danger col-sm-8 col-md-10 col-lg-8 py-2 mt-1">
+                        Voltar
+                    </a>
 
-    </section>
+                </div>
 
-</main>
+            </form>
+
+        </section>
+
+    </main>
+</div>
 
 @endsection()
 

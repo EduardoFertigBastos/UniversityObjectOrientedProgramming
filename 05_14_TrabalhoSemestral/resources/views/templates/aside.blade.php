@@ -5,39 +5,39 @@
     </div>
 
     <div class="row text-center">
-        <a href="{{route('states.index')}}" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">States</a>
+        <a href="{{route('states.index')}}" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">Estados</a>
     </div>
 
     <div class="row text-center">
-        <a href="{{route('cities.index')}}" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">Cities</a>
+        <a href="{{route('cities.index')}}" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">Cidades</a>
     </div>
 
     <div class="row text-center">
-        <a href="{{route('addresses.index')}}" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">Address</a>
+        <a href="{{route('addresses.index')}}" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">Endereços</a>
     </div>
 
     <div class="row text-center">
-        <a href="{{route('users.index')}}" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">Users</a>
+        <a href="{{route('users.index')}}" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">Usuários</a>
     </div>
 
     <div class="row text-center">
-        <a href="{{route('coins.index')}}" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">Coins</a>
+        <a href="{{route('coins.index')}}" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">Moedas</a>
     </div>
 
     <div class="row text-center">
-        <a href="{{route('purchases.index')}}" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">Purchases</a>
+        <a href="{{route('purchases.index')}}" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">Compras</a>
     </div>
 
     <div class="row text-center">
-        <a href="Vaca" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">Vaca</a>
+        <a href="#" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">&nbsp;</a>
     </div>
 
     <div class="row text-center">
-        <a href="Tigre" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">Tigre</a>
+        <a href="#" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">&nbsp;</a>
     </div>
 
     <div class="row text-center">
-        <a href="Jegue" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">Jegue</a>
+        <a href="#" class="bg-dark text-light col-12 py-3 border border-warning border-left-0 border-right-0">&nbsp;</a>
     </div>
 
 </aside>
