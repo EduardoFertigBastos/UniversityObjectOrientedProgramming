@@ -43,15 +43,18 @@ class CitiesController extends Controller
         return view('cities.create', compact('states_list'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $aux = 0)
     {
         try {
-            City::create([
+            $registro = City::create([
                 'name'     => $request->name,
                 'state_id' => $request->state_id,
             ]);
 
-            return redirect()->route('cities.index');
+            if ($aux == 0)
+                return redirect()->route('cities.index');
+            else
+                return $registro;
         } catch (Exception $e) {
             return $e;
         }

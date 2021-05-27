@@ -43,10 +43,10 @@ class AddressesController extends Controller
         return view('addresses.create', compact('cities_list'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $aux = 0)
     {
         try {
-            Address::create([
+            $registro = Address::create([
                 'cep'          => $request->cep,
                 'description'  => $request->description,
                 'numberHouse'  => $request->numberHouse,
@@ -55,7 +55,10 @@ class AddressesController extends Controller
                 'city_id'      => $request->city_id
             ]);
 
-            return redirect()->route('addresses.index');
+            if ($aux == 0)
+                return redirect()->route('addresses.index');
+            else
+                return $registro;
         } catch (Exception $e) {
             return $e;
         }
@@ -83,10 +86,10 @@ class AddressesController extends Controller
         }
     }
 
-    public function update(Request $request, int $id)
+    public function update(Request $request, int $id, $modo = 0)
     {
         try {
-            Address::where('id', $id)->update([
+            $address = Address::where('id', $id)->update([
                 'cep'          => $request->cep,
                 'description'  => $request->description,
                 'numberHouse'  => $request->numberHouse,
@@ -95,7 +98,10 @@ class AddressesController extends Controller
                 'city_id'      => $request->city_id
             ]);
 
-            return redirect()->route('addresses.index');
+            if ($modo == 0)
+                return redirect()->route('addresses.index');
+            else
+                return $address;
         } catch (Exception $e) {
             return $e;
         }
