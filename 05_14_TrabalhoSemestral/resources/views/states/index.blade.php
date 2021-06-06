@@ -56,15 +56,5 @@
     </main>
 </div>
 
-<div class="card text-center">
-    <header class="card-header row justify-content-center">
-        <h1>Estados</h1>
-    </header>
-    <main class="card-body row justify-content-center mt-3">
-
-    </main>
-</div>
-
-
 @endsection()
 
