@@ -24,7 +24,7 @@
                         <tr>
                             <th scope="row"> #{{ $city->id }} </td>
                             <td> {{ $city->name }} </td>
-                            <td> {{ $city->state->name }} </td>
+                            <td> {{ $city->state ? $city->state->name : 'Não existe' }} </td>
                             <td>
                                 <a href="{{ route('cities.edit', $city->id) }}" class="btn btn-primary">
                                     <i class="fas fa-edit"></i>

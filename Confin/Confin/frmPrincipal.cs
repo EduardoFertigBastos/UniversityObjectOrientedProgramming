@@ -174,5 +174,11 @@ namespace Confin
             FrmEstado form = new FrmEstado();
             form.Show();
         }
+
+        private void estadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RelatorioEstado form = new RelatorioEstado();
+            form.ShowDialog();
+        }
     }
 }
