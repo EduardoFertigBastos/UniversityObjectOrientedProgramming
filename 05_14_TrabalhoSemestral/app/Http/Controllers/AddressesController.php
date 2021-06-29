@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Address;
 use App\Models\City;
 use Exception;
+use PDF;
 
 /**
  * Class AddressesController.
@@ -116,5 +117,14 @@ class AddressesController extends Controller
         } catch (Exception $e) {
             return $e;
         }
+    }
+
+    public function createPDF() {
+        // retreive all records from db
+        $data = ['addresses_list' => Address::all()];
+
+        $pdf = PDF::loadView('addresses.pdf', $data);
+
+        return $pdf->download('pdf_file.pdf');
     }
 }

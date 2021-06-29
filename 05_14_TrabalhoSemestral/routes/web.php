@@ -35,6 +35,9 @@ Route::get('/states/{state_id}/show',    [StatesController::class, 'show'])  ->n
 Route::post('/states',                   [StatesController::class, 'store']) ->name('states.store');
 Route::post('/states/{state_id}/update', [StatesController::class, 'update'])->name('states.update');
 
+Route::get('/states/pdf',                [StatesController::class, 'createPDF'])->name('states.pdf');
+
+
 /**
  * CITIES
  */
@@ -46,6 +49,8 @@ Route::get('/cities/{city_id}/edit',    [CitiesController::class, 'edit'])  ->na
 Route::get('/cities/{city_id}/show',    [CitiesController::class, 'show'])  ->name('cities.show');
 Route::post('/cities',                  [CitiesController::class, 'store']) ->name('cities.store');
 Route::post('/cities/{city_id}/update', [CitiesController::class, 'update'])->name('cities.update');
+
+Route::get('/cities/pdf',               [CitiesController::class, 'createPDF'])->name('cities.pdf');
 
 /**
  * ADDRESSES
@@ -59,6 +64,8 @@ Route::get('/addresses/{address_id}/show',    [AddressesController::class, 'show
 Route::post('/addresses',                     [AddressesController::class, 'store']) ->name('addresses.store');
 Route::post('/addresses/{address_id}/update', [AddressesController::class, 'update'])->name('addresses.update');
 
+Route::get('/addresses/pdf',                  [AddressesController::class, 'createPDF'])->name('addresses.pdf');
+
 /**
  * USERS
  */
@@ -70,6 +77,8 @@ Route::get('/users/{user_id}/edit',    [UsersController::class, 'edit'])  ->name
 Route::get('/users/{user_id}/show',    [UsersController::class, 'show'])  ->name('users.show');
 Route::post('/users',                  [UsersController::class, 'store']) ->name('users.store');
 Route::post('/users/{user_id}/update', [UsersController::class, 'update'])->name('users.update');
+
+Route::get('/users/pdf',               [UsersController::class, 'createPDF'])->name('users.pdf');
 
 /**
  * COINS
@@ -83,8 +92,10 @@ Route::get('/coins/{coin_id}/show',    [CoinsController::class, 'show'])  ->name
 Route::post('/coins',                  [CoinsController::class, 'store']) ->name('coins.store');
 Route::post('/coins/{coin_id}/update', [CoinsController::class, 'update'])->name('coins.update');
 
+Route::get('/coins/pdf',               [CoinsController::class, 'createPDF'])->name('coins.pdf');
+
 /**
- * BOUGHTS
+ * PURCHASES
  */
 
 Route::get('/purchases',                       [PurchasesController::class, 'index']) ->name('purchases.index');
@@ -95,3 +106,4 @@ Route::get('/purchases/{purchase_id}/show',    [PurchasesController::class, 'sho
 Route::post('/purchases',                      [PurchasesController::class, 'store']) ->name('purchases.store');
 Route::post('/purchases/{purchase_id}/update', [PurchasesController::class, 'update'])->name('purchases.update');
 
+Route::get('/purchases/pdf',                   [PurchasesController::class, 'createPDF'])->name('purchases.pdf');

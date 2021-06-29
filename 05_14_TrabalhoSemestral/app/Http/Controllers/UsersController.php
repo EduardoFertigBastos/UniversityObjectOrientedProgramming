@@ -10,6 +10,7 @@ use App\Models\City;
 use App\Models\State;
 use App\Models\User;
 
+use Pdf;
 use Exception;
 /**
  * Class UsersController.
@@ -495,4 +496,11 @@ class UsersController extends Controller
         return true;
     }
 
+    public function createPDF() {
+        $data = ['users_list' => User::all()];
+
+        $pdf = PDF::loadView('users.pdf', $data);
+
+        return $pdf->download('pdf_users.pdf');
+    }
 }

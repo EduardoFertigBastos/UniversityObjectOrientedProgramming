@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Purchase;
 use App\Models\Coin;
 use Exception;
+use PDF;
 
 /**
  * Class PurchasesController.
@@ -105,5 +106,14 @@ class PurchasesController extends Controller
         } catch (Exception $e) {
             return $e;
         }
+    }
+
+    public function createPDF() {
+        // retreive all records from db
+        $data = ['purchases_list' => Purchase::all()];
+
+        $pdf = PDF::loadView('purhcases.pdf', $data);
+
+        return $pdf->download('pdf_purchase.pdf');
     }
 }

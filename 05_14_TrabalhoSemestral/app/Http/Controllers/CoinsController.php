@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Coin;
 use Exception;
+use PDF;
 
 /**
  * Class CoinsController.
@@ -95,5 +96,14 @@ class CoinsController extends Controller
         } catch (Exception $e) {
             return $e;
         }
+    }
+
+    public function createPDF() {
+        // retreive all records from db
+        $data = ['coins_list' => Coin::all()];
+
+        $pdf = PDF::loadView('coins.pdf', $data);
+
+        return $pdf->download('pdf_coin.pdf');
     }
 }

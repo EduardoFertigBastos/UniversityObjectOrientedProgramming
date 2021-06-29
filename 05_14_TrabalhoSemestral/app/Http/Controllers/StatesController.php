@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\State;
 use Exception;
+use PDF;
 
 /**
  * Class StatesController.
@@ -38,6 +39,15 @@ class StatesController extends Controller
     public function create()
     {
         return view('states.create');
+    }
+
+    public function createPDF() {
+        // retreive all records from db
+        $data = ['states_list' => State::all()];
+
+        $pdf = PDF::loadView('states.pdf', $data);
+
+        return $pdf->download('pdf_file.pdf');
     }
 
     public function store(Request $request)
