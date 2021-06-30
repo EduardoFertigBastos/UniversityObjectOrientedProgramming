@@ -56,6 +56,9 @@
             <div class="form-row justify-content-center">
                 <a href="{{route('addresses.create')}}" class="col-6 btn btn-primary"> Cadastrar </a>
             </div>
+            <div class="form-row justify-content-center">
+                <a href="{{route('addresses.pdf')}}" class="col-6 btn btn-warning"> PDF </a>
+            </div>
         </div>
 
         @include('templates.modalDelete', [

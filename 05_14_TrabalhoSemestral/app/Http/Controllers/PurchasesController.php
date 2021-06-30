@@ -112,7 +112,7 @@ class PurchasesController extends Controller
         // retreive all records from db
         $data = ['purchases_list' => Purchase::all()];
 
-        $pdf = PDF::loadView('purhcases.pdf', $data);
+        $pdf = PDF::loadView('purchases.pdf', $data);
 
         return $pdf->download('pdf_purchase.pdf');
     }
