@@ -104,6 +104,6 @@ class CoinsController extends Controller
 
         $pdf = PDF::loadView('coins.pdf', $data);
 
-        return $pdf->download('pdf_coin.pdf');
+        return $pdf->download('coins.pdf');
     }
 }

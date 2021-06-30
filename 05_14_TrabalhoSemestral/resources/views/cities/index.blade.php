@@ -49,7 +49,9 @@
                 <a href="{{route('cities.create')}}" class="col-6 btn btn-primary"> Cadastrar </a>
             </div>
             <div class="form-row justify-content-center">
-                <a href="{{route('cities.pdf')}}" class="col-6 btn btn-warning"> PDF </a>
+                <a href="{{route('cities.pdf')}}" class="col-6 btn btn-light">
+                    <i class="fas fa-file-pdf text-danger"></i> Gerar PDF
+                </a>
             </div>
         </div>
 

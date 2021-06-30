@@ -114,6 +114,6 @@ class CitiesController extends Controller
 
         $pdf = PDF::loadView('cities.pdf', $data);
 
-        return $pdf->download('pdf_cities.pdf');
+        return $pdf->download('cities.pdf');
     }
 }

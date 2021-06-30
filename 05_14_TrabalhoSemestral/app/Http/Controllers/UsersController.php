@@ -501,6 +501,6 @@ class UsersController extends Controller
 
         $pdf = PDF::loadView('users.pdf', $data);
 
-        return $pdf->download('pdf_users.pdf');
+        return $pdf->download('users.pdf');
     }
 }

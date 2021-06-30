@@ -125,6 +125,6 @@ class AddressesController extends Controller
 
         $pdf = PDF::loadView('addresses.pdf', $data);
 
-        return $pdf->download('pdf_file.pdf');
+        return $pdf->download('addresses.pdf');
     }
 }

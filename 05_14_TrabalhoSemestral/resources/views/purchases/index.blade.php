@@ -5,6 +5,7 @@
 <div class="card text-center">
     <header class="card-header row justify-content-center">
         <h1>Compras</h1>
+
     </header>
     <main class="card-body row justify-content-center mt-3">
 
@@ -51,7 +52,9 @@
                 <a href="{{route('purchases.create')}}" class="col-6 btn btn-primary"> Cadastrar </a>
             </div>
             <div class="form-row justify-content-center">
-                <a href="{{route('purchases.pdf')}}" class="col-6 btn btn-warning"> PDF </a>
+                <a href="{{route('purchases.pdf')}}" class="col-6 btn btn-light">
+                    <i class="fas fa-file-pdf text-danger"></i> Gerar PDF
+                </a>
             </div>
         </div>
 

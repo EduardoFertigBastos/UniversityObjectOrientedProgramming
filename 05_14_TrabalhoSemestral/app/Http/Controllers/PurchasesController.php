@@ -114,6 +114,6 @@ class PurchasesController extends Controller
 
         $pdf = PDF::loadView('purchases.pdf', $data);
 
-        return $pdf->download('pdf_purchase.pdf');
+        return $pdf->download('purchases.pdf');
     }
 }

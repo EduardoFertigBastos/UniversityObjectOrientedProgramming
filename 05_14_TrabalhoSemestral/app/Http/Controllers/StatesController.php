@@ -47,7 +47,7 @@ class StatesController extends Controller
 
         $pdf = PDF::loadView('states.pdf', $data);
 
-        return $pdf->download('pdf_file.pdf');
+        return $pdf->download('states.pdf');
     }
 
     public function store(Request $request)
